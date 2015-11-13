@@ -10,30 +10,31 @@ public class DirectlyInsertSort {
         if (null == origin || 1 == origin.length) return null;
 
         int size = origin.length;
-        int[] result = new int [size];
+        //int[] result = new int [size];
 
-        result[0] = origin[0];
+        //result[0] = origin[0];
         for (int i = 1; i < size; i++) {
             for (int j = 0; j < i; j++) {
-                if (origin[i] >= result[j]) {
+                if (origin[i] >= origin[j]) {
                     if (j == i - 1) {
-                        result[j + 1] = origin[i];
+                        //result[j + 1] = origin[i];
                         break;
                     } else {
                         continue;
                     }
                 } else {
+                    int temp = origin[i];
                     for (int k = i; k > j ; k--) {
-                        result[k] = result[k - 1];
+                        origin[k]= origin[k - 1];
                     }
                         
-                    result[j] = origin[i];
+                    origin[j] = temp;
                     break;
                 }
             }
         }
 
-        return result;
+        return origin;
 
     }
 
